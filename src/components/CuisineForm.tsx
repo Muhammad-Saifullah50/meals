@@ -20,9 +20,8 @@ import {
 } from "@/components/ui/popover"
 
 import { cuisines } from "@/constants/index";
-import Form from "next/form"
 
-export function CuisineForm({ setCuisine }: {setCuisine: (cuisine: string) => void}) {
+export function CuisineForm({ cuisine, setCuisine }: any) {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("")
 
@@ -54,8 +53,8 @@ export function CuisineForm({ setCuisine }: {setCuisine: (cuisine: string) => vo
                                             value={cuisine.value}
                                             onSelect={(currentValue) => {
                                                 setValue(currentValue === value ? "" : currentValue);
-                                                setCuisine(cuisine.value)
                                                 setOpen(false)
+                                                setCuisine(currentValue)
                                             }}
                                         >
                                             <Check

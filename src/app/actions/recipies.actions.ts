@@ -3,16 +3,24 @@
 export const getRecipies = async ({
     query = '',
     cuisine = '',
-    number = 12
+    number = 12,
+    diet = '',
+    ingredients = '',
+    calories = 800,
+    prepTime = 10
 }: {
     query: string;
     cuisine?: string
     number?: number
+    diet?: string
+    ingredients?: string
+    calories?: number
+    prepTime?: number
 }) => {
 
     try {
 
-        const request = await fetch(`https://api.spoonacular.com/recipes/complexSearch?number=${number}&query=${query}&cuisine=${cuisine}`, {
+        const request = await fetch(`https://api.spoonacular.com/recipes/complexSearch?number=${number}&query=${query}&cuisine=${cuisine}&maxCalories=${calories}&diet=${diet}&includeIngredients=${ingredients}&maxPrepTime=${prepTime}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +39,7 @@ export const getRecipies = async ({
 export const getRecipiesById = async (id: string) => {
 
     try {
-        const request = await fetch(`https://api.spoonacular.com/recipes/${id}/information`, {
+        const request = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +48,7 @@ export const getRecipiesById = async (id: string) => {
         });
 
         const recipe = await request.json();
-
+console.log(recipe)
         return recipe
 
     } catch (error) {

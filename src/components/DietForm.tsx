@@ -21,7 +21,7 @@ import {
 
 import { diets } from "@/constants/index";
 
-export function DietForm() {
+export function DietForm({ setDiet }: {setDiet: (diet: string) => void}) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
@@ -52,7 +52,8 @@ export function DietForm() {
                   value={diet.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
-                    setOpen(false)
+                    setOpen(false);
+                    setDiet(currentValue);
                   }}
                 >
                   <Check
