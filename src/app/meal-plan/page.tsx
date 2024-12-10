@@ -1,12 +1,12 @@
+import MealPlanTable from "@/components/MealPlanTable";
 import { getMealPlan } from "../actions/meals.actions";
 
 
 const MealPlanPage = async () => {
 
-    const mealPlan = await getMealPlan();
-    console.log(mealPlan, 'plan')
+  const mealPlan = await getMealPlan();
   return (
-   <h1></h1>
+    <MealPlanTable mealPlan={mealPlan} />
   )
 }
 

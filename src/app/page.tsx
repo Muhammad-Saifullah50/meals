@@ -15,15 +15,17 @@ type HomePageParams = {
     calories: number
   }
 }
-export default async function Home({ searchParams }: HomePageParams) {
+export default async function Home({   searchParams }: HomePageParams) {
 
-  const query = await searchParams.query
-  const number = await searchParams.number
-  const cuisine = await searchParams.cuisine
-  const diet = await searchParams.diet
-  const prepTime = await searchParams.prepTime
-  const ingredients = await searchParams.ingredients
-  const calories = await searchParams.calories
+  const params = await searchParams
+
+  const query =    params.query
+  const number =    params.number
+  const cuisine =    params.cuisine
+  const diet =  params.diet
+  const prepTime =  params.prepTime
+  const ingredients =  params.ingredients
+  const calories =  params.calories
 
   const recipies = await getRecipies({
     query: query,

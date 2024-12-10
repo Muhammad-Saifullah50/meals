@@ -22,11 +22,9 @@ export const getMealPlan = async () => {
     const username = process.env.SPOONACULAR_USERNAME!;
     const hash = process.env.SPOONACULAR_HASH!;
 
-    const date = new Date();
-    const startDate = date.toISOString().split('T')[0];
     
     try {
-        const request = await fetch(`https://api.spoonacular.com/mealplanner/${username}/templates/128?hash=${hash}`, {
+        const request = await fetch(`https://api.spoonacular.com/mealplanner/${username}/templates/100?hash=${hash}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
