@@ -3,6 +3,8 @@ import { getRecipies } from "./actions/recipies.actions";
 import SearchBar from "@/components/SearchBar";
 import LoadMoreButton from "@/components/LoadMoreButton";
 import FilterForm from "@/components/FilterForm";
+import { Suspense } from "react";
+import RecipeCardSkeleton from "@/components/RecipeCardSkeleton";
 
 type HomePageParams = {
   searchParams: {
@@ -53,9 +55,19 @@ export default async function Home({   searchParams }: HomePageParams) {
         />
       </section>
       <section className="flex flex-wrap gap-10 py-10 items-center justify-center">
-        {recipies.map((recipe) => (
-          <RecipeCard recipe={recipe} key={recipe.id} />
-        ))}
+
+      <Suspense fallback={
+          <div className="flex flex-wrap gap-10 items-center justify-center">
+            {[...Array(6)].map((_, index) => (
+              <RecipeCardSkeleton key={index} />
+            ))}
+          </div>
+        }>
+          {recipies.map((recipe) => (
+            <RecipeCard recipe={recipe} key={recipe.id} />
+          ))}
+        </Suspense>
+        
       </section>
 
       <section className="py-5">

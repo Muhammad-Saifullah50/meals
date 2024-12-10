@@ -13,15 +13,16 @@ const MealPlanTable = ({ mealPlan }: { mealPlan: any }) => {
     console.log(mealPlan)
     return (
         <>
-            <Table>
-                <TableHeader>Table of meals</TableHeader>
-                <TableCaption>Your generated meal plan</TableCaption>
-                <TableHeader>
+            <h4 className="font-bold text-2xl text-center mb-10">Your meal plan</h4>
+
+            <Table className="border">
+                <TableCaption>Weekly meal plan</TableCaption>
+                <TableHeader className="border">
                     <TableRow>
-                        <TableHead className="w-[100px]">Days</TableHead>
-                        <TableHead>Breakfast</TableHead>
-                        <TableHead>Lunch</TableHead>
-                        <TableHead>Dinner</TableHead>
+                        <TableHead className="border w-[100px]">Days</TableHead>
+                        <TableHead className="border">Breakfast</TableHead>
+                        <TableHead className="border">Lunch</TableHead>
+                        <TableHead className="border">Dinner</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -29,7 +30,7 @@ const MealPlanTable = ({ mealPlan }: { mealPlan: any }) => {
                         <TableRow key={day.date}>
                             <TableCell className="font-medium">Day: {day.day}</TableCell>
                             {day.items.map((item: any) => (
-                                <TableCell key={item.id}>
+                                <TableCell key={item.id} className="border">
                                     {item.value.title}
                                 </TableCell>
                             ))}
@@ -38,40 +39,48 @@ const MealPlanTable = ({ mealPlan }: { mealPlan: any }) => {
                 </TableBody>
             </Table>
 
-            <Table>
-                <TableHeader>Table of nutrients</TableHeader>
+            <h4 className="font-bold text-2xl text-center my-10">Nutritional information</h4>
+            <Table className="border">
                 <TableCaption>Nutritional information about your meal plan</TableCaption>
                 <TableHeader>
-                    <TableRow>
-                        <TableHead className="w-[100px]">Days</TableHead>
-                        <TableHead>Breakfast</TableHead>
-                        <TableHead>Lunch</TableHead>
-                        <TableHead>Dinner</TableHead>
+                    <TableRow className="border">
+                        <TableHead className="border text-left">Days</TableHead>
+                        <TableHead className="border text-center">Breakfast Calories</TableHead>
+                        <TableHead className="border text-center">Lunch Calories</TableHead>
+                        <TableHead className="border text-right">Dinner Calories</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {mealPlan.days.map((day: any) => (
-                        <TableRow key={day.date}>
-                            <TableCell className="font-medium">Day: {day.day}
-                            </TableCell>
+                    {mealPlan.days.map((day: any) => {
 
-                            {day.nutritionSummaryBreakfast.nutrients.map((nutrient: any) => (
-                                <TableCell key={nutrient.name}>
-                                    {nutrient.name}: {nutrient.amount} {nutrient.unit}
+                        const breakfastCalories = day.nutritionSummaryBreakfast.nutrients.filter((nutrient: any) => nutrient.name === 'Calories');
+
+                        const LunchCalories = day.nutritionSummaryLunch.nutrients.filter((nutrient: any) => nutrient.name === 'Calories');
+
+                        const DinnerCalories = day.nutritionSummaryDinner.nutrients.filter((nutrient: any) => nutrient.name === 'Calories')
+                        return (
+                            <TableRow key={day.date}>
+                                <TableCell className="font-medium text-left">Day: {day.day}
                                 </TableCell>
-                            ))}
-                            {day.nutritionSummaryLunch.nutrients.map((nutrient: any) => (
-                                <TableCell key={nutrient.name}>
-                                    {nutrient.name}: {nutrient.amount} {nutrient.unit}
-                                </TableCell>
-                            ))}
-                            {day.nutritionSummaryDinner.nutrients.map((nutrient: any) => (
-                                <TableCell key={nutrient.name}>
-                                    {nutrient.name}: {nutrient.amount} {nutrient.unit}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    ))}
+
+                                {breakfastCalories.map((nutrient: any) => (
+                                    <TableCell key={nutrient.name} className="text-center border">
+                                        {nutrient.amount} {nutrient.unit}
+                                    </TableCell>
+                                ))}
+                                {LunchCalories.map((nutrient: any) => (
+                                    <TableCell key={nutrient.name} className="text-center border">
+                                        {nutrient.amount} {nutrient.unit}
+                                    </TableCell>
+                                ))}
+                                {DinnerCalories.map((nutrient: any) => (
+                                    <TableCell key={nutrient.name} className="text-right border">
+                                        {nutrient.amount} {nutrient.unit}
+                                    </TableCell>
+                                ))}
+                            </TableRow>
+                        )
+                    })}
                 </TableBody>
             </Table>
 

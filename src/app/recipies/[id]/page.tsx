@@ -1,5 +1,7 @@
 import { getRecipiesById } from "@/app/actions/recipies.actions"
+import RecipeNutritionTable from "@/components/RecipeNutritionTable";
 import { Button } from "@/components/ui/button";
+import { Table } from "@/components/ui/table";
 import { RecipeInfo } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,13 +29,20 @@ const RecipePage = async ({ params }: { params: { id: string } }) => {
                 <div className="flex flex-col gap-4 w-2/3 ">
                     <div className="flex flex-col gap-4">
 
-
                         <h2 className="font-bold text-2xl">Summary</h2>
 
                         <p dangerouslySetInnerHTML={{ __html: recipe.summary }} />
                     </div>
 
-                    <Link href={`/cook/recipies/${recipe.id}`}><Button className="w-full">Open in Cooking Mode</Button></Link>
+                    <div>
+                        <div>
+                            <h2 className="font-bold text-2xl my-5">Nutritional Information</h2>
+
+                            <RecipeNutritionTable nutrients={recipe.nutrition.nutrients} />
+                        </div>
+                    </div>
+
+
                 </div>
                 <div className="flex flex-col gap-4 w-1/3">
                     <h2 className="font-bold text-2xl">General Information</h2>
@@ -45,6 +54,8 @@ const RecipePage = async ({ params }: { params: { id: string } }) => {
                         {recipe.cookingMinutes && <li>Cooking minutes: {recipe.cookingMinutes}</li>}
                         <li>Health Score: {recipe.healthScore}</li>
                     </ul>
+
+                    <Link href={`/cook/recipies/${recipe.id}`}><Button className="w-full">Open in Cooking Mode</Button></Link>
                 </div>
             </div>
         </main>

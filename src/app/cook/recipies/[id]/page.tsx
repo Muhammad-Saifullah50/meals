@@ -44,6 +44,8 @@ const CookRecipePage = async ({ params }: { params: { id: string } }) => {
                             ))}
                         </div>
                     </div>
+
+        
                 </div>
                 <div className="flex flex-col gap-4 w-1/3">
                     <h2 className="font-bold text-2xl">Ingredients</h2>

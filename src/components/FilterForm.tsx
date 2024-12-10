@@ -54,7 +54,7 @@ const FilterForm = ({
                 <DietForm setDiet={setDiet} />
 
                 <Input type="number" name="prepTime" placeholder="Prep Time" className="text-black" value={prepTime} onChange={(e) => setPrepTime(e.target.value)} />
-                <Input type="number" name="ingredients" placeholder="Ingredients" className="text-black" value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
+                <Input type="string" name="ingredients" placeholder="Ingredients" className="text-black" value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
                 <Input type="number" name="calories" placeholder="Calories" className="text-black" value={calories} onChange={(e) => setCalories(e.target.value)} />
 
                 <Button onClick={handleParamsUpdate}>Search</Button>
