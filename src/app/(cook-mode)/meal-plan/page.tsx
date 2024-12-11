@@ -1,5 +1,5 @@
 import MealPlanTable from "@/components/MealPlanTable";
-import { getMealPlan } from "../actions/meals.actions";
+import { getMealPlan } from "@/app/actions/meals.actions";
 
 
 const MealPlanPage = async () => {

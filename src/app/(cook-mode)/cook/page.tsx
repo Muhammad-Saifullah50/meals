@@ -4,7 +4,7 @@ import LoadMoreButton from "@/components/LoadMoreButton";
 import FilterForm from "@/components/FilterForm";
 import { Suspense } from "react";
 import RecipeCardSkeleton from "@/components/RecipeCardSkeleton";
-import { getRecipies } from "../actions/recipies.actions";
+import { getRecipies } from "@/app/actions/recipies.actions";
 
 type HomePageParams = {
   searchParams: {
@@ -42,7 +42,7 @@ export default async function CookModePage({   searchParams }: HomePageParams) {
   return (
     <main>
 
-      <h1 className="font-bold text-3xl">Find what to cook </h1>
+      <h1 className="font-bold text-3xl">Happy Cooking!!</h1>
 
       <section className="py-5">
         <FilterForm
@@ -64,7 +64,7 @@ export default async function CookModePage({   searchParams }: HomePageParams) {
           </div>
         }>
           {recipies.map((recipe) => (
-            <RecipeCard recipe={recipe} key={recipe.id} />
+            <RecipeCard recipe={recipe} key={recipe.id} isCookMode={true}/>
           ))}
         </Suspense>
         

@@ -12,7 +12,7 @@ import {
 const MealPlanTable = ({ mealPlan }: { mealPlan: any }) => {
     console.log(mealPlan)
     return (
-        <>
+        <div className="flex flex-col">
             <h4 className="font-bold text-2xl text-center mb-10">Your meal plan</h4>
 
             <Table className="border">
@@ -84,7 +84,7 @@ const MealPlanTable = ({ mealPlan }: { mealPlan: any }) => {
                 </TableBody>
             </Table>
 
-        </>)
+        </div>)
 }
 
 export default MealPlanTable

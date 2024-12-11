@@ -9,10 +9,12 @@ type Recipe = {
 }
 type RecipeCardProps = {
     recipe: Recipe;
+    isCookMode?:boolean
+
 }
-const RecipeCard = ({ recipe }: RecipeCardProps) => {
+const RecipeCard = ({ recipe,isCookMode }: RecipeCardProps) => {
     return (
-        <Link href={`/recipies/${recipe.id}`}>
+        <Link href={isCookMode ? `/cook/recipies/${recipe.id}`:`/recipies/${recipe.id}`}>
         <aside className="flex flex-col gap-6 border border-black rounded-3xl max-w-52  min-h-64 justify-between pb-2">
             <Image
                 src={recipe.image}
