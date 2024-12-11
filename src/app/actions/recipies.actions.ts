@@ -25,7 +25,8 @@ export const getRecipies = async ({
             headers: {
                 'Content-Type': 'application/json',
                 'x-api-key': process.env.SPOONACULAR_API_KEY!,
-            }
+            },
+            cache: 'force-cache'
         });
 
         const recipies = await request.json();
@@ -44,11 +45,11 @@ export const getRecipiesById = async (id: string) => {
             headers: {
                 'Content-Type': 'application/json',
                 'x-api-key': process.env.SPOONACULAR_API_KEY!,
-            }
+            },
+            cache: 'force-cache'
         });
 
         const recipe = await request.json();
-console.log(recipe)
         return recipe
 
     } catch (error) {

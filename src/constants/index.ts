@@ -41,3 +41,15 @@ export const diets = [
     { value: "low_fodmap", label: "Low FODMAP" },
     { value: "whole30", label: "Whole30" }
 ];
+
+export const sidebarLinks = [
+    {
+        label: 'Meal Plan',
+        route: '/meal-plan'
+    }, 
+    {
+        label: 'Shopping List',
+        route: '/shopping-list'
+    }, 
+
+]

@@ -11,7 +11,8 @@ export const getMealPlan = async () => {
             headers: {
                 'Content-Type': 'application/json',
                 'x-api-key': process.env.SPOONACULAR_API_KEY!,
-            }   
+            },
+            cache: 'force-cache'   
         })
 
         const response = await request.json();

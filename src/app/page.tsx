@@ -54,7 +54,7 @@ export default async function Home({   searchParams }: HomePageParams) {
           calories={calories}
         />
       </section>
-      <section className="flex flex-wrap gap-10 py-10 items-center justify-center">
+      <section className="grid grid-cols-4 gap-10 py-10 items-center justify-center">
 
       <Suspense fallback={
           <div className="flex flex-wrap gap-10 items-center justify-center">
