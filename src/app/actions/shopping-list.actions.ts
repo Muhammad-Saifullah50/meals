@@ -17,7 +17,7 @@ export const getShoppingList = async () => {
 
         return response
     } catch (error) {
-        console.error('Failed to get shopping list on server')
+        console.error('Failed to get shopping list on server', error)
     }
 
 }

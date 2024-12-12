@@ -1,5 +1,4 @@
 import RecipeCard from "@/components/RecipeCard";
-import LoadMoreButton from "@/components/LoadMoreButton";
 import FilterForm from "@/components/FilterForm";
 import { getRecipies } from "@/app/actions/recipies.actions";
 import { RecipeInfo } from "@/types";
@@ -58,9 +57,6 @@ export default async function CookModePage({   searchParams }: HomePageParams) {
           ))}
       </section>
 
-      <section className="py-5">
-        <LoadMoreButton number={number} />
-      </section>
 
 
     </main>

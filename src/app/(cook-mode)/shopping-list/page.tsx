@@ -1,9 +1,9 @@
-import { getShoppingList } from "@/app/actions/shopping-list.actions"
+// import { getShoppingList } from "@/app/actions/shopping-list.actions"
 import ShoppingList from "@/components/ShoppingList"
 
 const ShoppingListPage = async () => {
 
-    const shoppingList = await getShoppingList()
+    // const shoppingList = await getShoppingList()
 
     return (
         <section>

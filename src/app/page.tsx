@@ -1,6 +1,5 @@
 import RecipeCard from "@/components/RecipeCard";
 import { getRecipies } from "./actions/recipies.actions";
-import LoadMoreButton from "@/components/LoadMoreButton";
 import FilterForm from "@/components/FilterForm";
 import { RecipeInfo } from "@/types";
 
@@ -60,12 +59,6 @@ export default async function Home({   searchParams }: HomePageParams) {
           ))}
         
       </section>
-
-      <section className="py-5">
-        <LoadMoreButton number={number} />
-      </section>
-
-
     </main>
   );
 }
