@@ -2,11 +2,11 @@ import Sidebar from "@/components/Sidebar"
 
 const CookLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <main className="flex">
+        <main className="md:flex w-full">
             <div className="flex ">
                 <Sidebar />
             </div>
-            <div className="flex ml-80">
+            <div className="md:flex md:ml-80">
                  {children}
             </div>
 

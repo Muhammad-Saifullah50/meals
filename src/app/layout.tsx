@@ -23,10 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased`}
+        className={`${inter.variable} antialiased max-w-7xl mx-auto`}
       >
         <Navbar />
-        <main className="p-10 z-10 relative">
+        <main className="p-10 z-10 relative ">
           {children}
         </main>
       </body>
