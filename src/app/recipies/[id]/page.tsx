@@ -5,9 +5,9 @@ import { RecipeInfo } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-const RecipePage = async ({ params }: { params: { id: string } }) => {
+const RecipePage = async ({ params }: { params: Promise<{ id: string }> }) => {
 
-    const id = await params.id
+    const id = (await params).id
 
     const recipe: RecipeInfo = await getRecipiesById(id);
 
