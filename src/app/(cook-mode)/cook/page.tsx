@@ -3,18 +3,18 @@ import FilterForm from "@/components/FilterForm";
 import { getRecipies } from "@/app/actions/recipies.actions";
 import { RecipeInfo } from "@/types";
 
-type HomePageParams = {
-  searchParams: {
-    query: string,
-    number: number,
-    cuisine: string,
-    diet: string,
-    prepTime: number,
-    ingredients: string,
-    calories: number
-  }
+interface HomePageParams {
+  searchParams: Promise<{
+    query: string;
+    number: number;
+    cuisine: string;
+    diet: string;
+    prepTime: number;
+    ingredients: string;
+    calories: number;
+  }>;
 }
-export default async function CookModePage({   searchParams }: HomePageParams) {
+export default async function CookModePage({ searchParams }: HomePageParams) {
 
   const params = await searchParams
 
