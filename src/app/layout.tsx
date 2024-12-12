@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  weight: ['100']
 })
 
 export const metadata: Metadata = {
