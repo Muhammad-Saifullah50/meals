@@ -13,7 +13,7 @@ import Link from "next/link"
 const MobileSidebar = () => {
     return (
         <Sheet >
-            <SheetTrigger className="sticky left-0 top-10 bg-white p-4 rounded-full border md:hidden">
+            <SheetTrigger className=" absolute -left-5 top-0 bg-white p-4 rounded-full border md:hidden">
                 <Image
                     src={'/sidebaricon.svg'}
                     width={30}
