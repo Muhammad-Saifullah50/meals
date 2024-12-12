@@ -1,9 +1,6 @@
 import RecipeCard from "@/components/RecipeCard";
-import SearchBar from "@/components/SearchBar";
 import LoadMoreButton from "@/components/LoadMoreButton";
 import FilterForm from "@/components/FilterForm";
-import { Suspense } from "react";
-import RecipeCardSkeleton from "@/components/RecipeCardSkeleton";
 import { getRecipies } from "@/app/actions/recipies.actions";
 import { RecipeInfo } from "@/types";
 

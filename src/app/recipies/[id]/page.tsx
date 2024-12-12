@@ -1,7 +1,6 @@
 import { getRecipiesById } from "@/app/actions/recipies.actions"
 import RecipeNutritionTable from "@/components/RecipeNutritionTable";
 import { Button } from "@/components/ui/button";
-import { Table } from "@/components/ui/table";
 import { RecipeInfo } from "@/types";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,5 +1,4 @@
 import { getShoppingList } from "@/app/actions/shopping-list.actions"
-import GenerateShoppingListButton from "@/components/GenerateShoppingListButton"
 import ShoppingList from "@/components/ShoppingList"
 
 const ShoppingListPage = async () => {

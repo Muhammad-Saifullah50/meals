@@ -1,4 +1,4 @@
-
+'use server'
 
 export const getMealPlan = async () => {
     const username = process.env.SPOONACULAR_USERNAME!;

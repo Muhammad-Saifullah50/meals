@@ -1,6 +1,4 @@
 import { Input } from "./ui/input"
-import { Button } from "./ui/button"
-import { useState } from "react"
 const SearchBar = ({ query, setQuery }: { query: string, setQuery: React.Dispatch<React.SetStateAction<string>> }) => {
 
     return (
