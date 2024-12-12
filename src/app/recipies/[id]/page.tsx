@@ -25,8 +25,8 @@ const RecipePage = async ({ params }: { params: { id: string } }) => {
                 />
             </div>
             <h1 className="font-bold text-3xl">{recipe.title}</h1>
-            <div className="flex gap-4">
-                <div className="flex flex-col gap-4 w-2/3 ">
+            <div className="flex flex-col lg:flex-row gap-4">
+                <div className="flex flex-col gap-4 w-full lg:w-2/3 ">
                     <div className="flex flex-col gap-4">
 
                         <h2 className="font-bold text-2xl">Summary</h2>
@@ -44,7 +44,7 @@ const RecipePage = async ({ params }: { params: { id: string } }) => {
 
 
                 </div>
-                <div className="flex flex-col gap-4 w-1/3">
+                <div className="flex flex-col gap-4 w-full lg:w-1/3">
                     <h2 className="font-bold text-2xl">General Information</h2>
 
                     <ul>

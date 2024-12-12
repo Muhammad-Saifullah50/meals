@@ -20,8 +20,7 @@ import {
 } from "@/components/ui/popover"
 
 import { cuisines } from "@/constants/index";
-
-export function CuisineForm({ cuisine, setCuisine }: any) {
+export function CuisineForm({ setCuisine }: {setCuisine: (cuisine:string) => void}) {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("")
 

@@ -15,7 +15,14 @@ const FilterForm = ({
     prepTime: existingPrepTime,
     ingredients: existingIngredients,
     calories: existingCalories
-}: any) => {
+}: {
+    query?: string,
+    cuisine?: string,
+    diet?: string,
+    prepTime?: number,
+    ingredients?: string,
+    calories?: number
+}) => {
 
 
     const [query, setQuery] = useState(existingQuery || '')
@@ -48,7 +55,7 @@ const FilterForm = ({
         <div className="flex flex-col gap-4">
             <SearchBar query={query} setQuery={setQuery} />
 
-            <div className="flex gap-2">
+            <div className="flex flex-col md:flex-row gap-2">
 
                 <CuisineForm setCuisine={setCuisine} />
                 <DietForm setDiet={setDiet} />

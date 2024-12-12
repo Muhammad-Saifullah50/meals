@@ -57,6 +57,9 @@ export type RecipeInfo = {
   instructions: string;
   occasions: string[];
   diets: string[];
+  nutrition: {
+    nutrients: Nutrient[]
+  }
 };
 
 export type ISODateTime = string;
@@ -64,4 +67,43 @@ export type ISODateTime = string;
 export type TimeStamp = {
   datetime: ISODateTime;
   timezone: string;
+};
+
+export type Nutrient = {
+  name: string;
+  amount: number;
+  unit: string;
+  percentOfDailyNeeds: number;
+};
+
+export type NutritionSummary = {
+  nutrients: Nutrient[];
+};
+
+export type MealItem = {
+  id: number;
+  slot: number;
+  position: number;
+  type: string;
+  value: {
+    servings: number;
+    id: number;
+    title: string;
+    imageType?: string;
+    ingredients?: { name: string; unit: string; amount: string; image: string; }[];
+  };
+};
+
+export type DayMealPlan = {
+  nutritionSummary: NutritionSummary;
+  nutritionSummaryBreakfast: NutritionSummary;
+  nutritionSummaryLunch: NutritionSummary;
+  nutritionSummaryDinner: NutritionSummary;
+  date: number;
+  day: string;
+  items: MealItem[];
+};
+
+export type MealPlan = {
+  days: DayMealPlan[];
 };

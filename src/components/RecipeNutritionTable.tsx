@@ -7,8 +7,9 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { Nutrient } from "@/types"
 
-const RecipeNutritionTable = ({ nutrients }: { nutrients: any }) => {
+const RecipeNutritionTable = ({ nutrients }: { nutrients: Nutrient[] }) => {
     return (
         <Table className="border">
             <TableHeader>
@@ -19,7 +20,7 @@ const RecipeNutritionTable = ({ nutrients }: { nutrients: any }) => {
                 </TableRow>
             </TableHeader>
             <TableBody>
-                {nutrients.map((nutrient: any) => (
+                {nutrients.map((nutrient: Nutrient) => (
                     <TableRow key={nutrient.name} className="border">
                         <TableCell className="border">{nutrient.name}</TableCell>
                         <TableCell className="border">{nutrient.amount} {nutrient.unit}</TableCell>

@@ -5,6 +5,7 @@ import FilterForm from "@/components/FilterForm";
 import { Suspense } from "react";
 import RecipeCardSkeleton from "@/components/RecipeCardSkeleton";
 import { getRecipies } from "@/app/actions/recipies.actions";
+import { RecipeInfo } from "@/types";
 
 type HomePageParams = {
   searchParams: {
@@ -54,20 +55,10 @@ export default async function CookModePage({   searchParams }: HomePageParams) {
           calories={calories}
         />
       </section>
-      <section className="flex flex-wrap gap-10 py-10 items-center justify-center">
-
-      <Suspense fallback={
-          <div className="flex flex-wrap gap-10 items-center justify-center">
-            {[...Array(6)].map((_, index) => (
-              <RecipeCardSkeleton key={index} />
-            ))}
-          </div>
-        }>
-          {recipies.map((recipe) => (
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 py-10 items-center justify-center">
+          {recipies.map((recipe:RecipeInfo) => (
             <RecipeCard recipe={recipe} key={recipe.id} isCookMode={true}/>
           ))}
-        </Suspense>
-        
       </section>
 
       <section className="py-5">

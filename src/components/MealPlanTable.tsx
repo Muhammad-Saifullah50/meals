@@ -8,8 +8,9 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { DayMealPlan, MealPlan, Nutrient } from "@/types"
 
-const MealPlanTable = ({ mealPlan }: { mealPlan: any }) => {
+const MealPlanTable = ({ mealPlan }: { mealPlan: MealPlan}) => {
     console.log(mealPlan)
     return (
         <div className="flex flex-col">
@@ -26,10 +27,10 @@ const MealPlanTable = ({ mealPlan }: { mealPlan: any }) => {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {mealPlan.days.map((day: any) => (
+                    {mealPlan.days.map((day: DayMealPlan) => (
                         <TableRow key={day.date}>
                             <TableCell className="font-medium">Day: {day.day}</TableCell>
-                            {day.items.map((item: any) => (
+                            {day.items.map((item) => (
                                 <TableCell key={item.id} className="border">
                                     {item.value.title}
                                 </TableCell>
@@ -51,29 +52,29 @@ const MealPlanTable = ({ mealPlan }: { mealPlan: any }) => {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {mealPlan.days.map((day: any) => {
+                    {mealPlan.days.map((day) => {
 
-                        const breakfastCalories = day.nutritionSummaryBreakfast.nutrients.filter((nutrient: any) => nutrient.name === 'Calories');
+                        const breakfastCalories = day.nutritionSummaryBreakfast.nutrients.filter((nutrient: Nutrient) => nutrient.name === 'Calories');
 
-                        const LunchCalories = day.nutritionSummaryLunch.nutrients.filter((nutrient: any) => nutrient.name === 'Calories');
+                        const LunchCalories = day.nutritionSummaryLunch.nutrients.filter((nutrient: Nutrient) => nutrient.name === 'Calories');
 
-                        const DinnerCalories = day.nutritionSummaryDinner.nutrients.filter((nutrient: any) => nutrient.name === 'Calories')
+                        const DinnerCalories = day.nutritionSummaryDinner.nutrients.filter((nutrient: Nutrient) => nutrient.name === 'Calories')
                         return (
                             <TableRow key={day.date}>
                                 <TableCell className="font-medium text-left">Day: {day.day}
                                 </TableCell>
 
-                                {breakfastCalories.map((nutrient: any) => (
+                                {breakfastCalories.map((nutrient: Nutrient) => (
                                     <TableCell key={nutrient.name} className="text-center border">
                                         {nutrient.amount} {nutrient.unit}
                                     </TableCell>
                                 ))}
-                                {LunchCalories.map((nutrient: any) => (
+                                {LunchCalories.map((nutrient: Nutrient) => (
                                     <TableCell key={nutrient.name} className="text-center border">
                                         {nutrient.amount} {nutrient.unit}
                                     </TableCell>
                                 ))}
-                                {DinnerCalories.map((nutrient: any) => (
+                                {DinnerCalories.map((nutrient: Nutrient) => (
                                     <TableCell key={nutrient.name} className="text-right border">
                                         {nutrient.amount} {nutrient.unit}
                                     </TableCell>

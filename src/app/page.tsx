@@ -5,6 +5,7 @@ import LoadMoreButton from "@/components/LoadMoreButton";
 import FilterForm from "@/components/FilterForm";
 import { Suspense } from "react";
 import RecipeCardSkeleton from "@/components/RecipeCardSkeleton";
+import { RecipeInfo } from "@/types";
 
 type HomePageParams = {
   searchParams: {
@@ -54,19 +55,12 @@ export default async function Home({   searchParams }: HomePageParams) {
           calories={calories}
         />
       </section>
-      <section className="grid grid-cols-4 gap-10 py-10 items-center justify-center">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-10 py-10 items-center justify-center w-full mx-auto">
 
-      <Suspense fallback={
-          <div className="flex flex-wrap gap-10 items-center justify-center">
-            {[...Array(6)].map((_, index) => (
-              <RecipeCardSkeleton key={index} />
-            ))}
-          </div>
-        }>
-          {recipies.map((recipe) => (
+     
+          {recipies.map((recipe: RecipeInfo) => (
             <RecipeCard recipe={recipe} key={recipe.id} />
           ))}
-        </Suspense>
         
       </section>
 
